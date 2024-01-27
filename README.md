@@ -1,0 +1,2 @@
+# loto
+French lottery application
