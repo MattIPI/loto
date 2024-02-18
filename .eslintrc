@@ -1,0 +1,37 @@
+{
+    "extends": [
+        "eslint-config-airbnb",
+    ],
+    "overrides": [
+        {
+            "files": [
+                "**/*.ts",
+                "**/*.tsx"
+            ],
+            "rules": {
+                "no-multiple-empty-lines": [
+                    "error",
+                    {
+                        "max": 1,
+                        "maxBOF": 1
+                    }
+                ],
+                "linebreak-style": ["error", "windows"],
+                "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }]
+            },
+            "plugins": [
+                "@typescript-eslint",
+            ],
+            "extends": [
+                "eslint:recommended",
+                "plugin:@typescript-eslint/recommended"
+            ],
+            "parser": "@typescript-eslint/parser",
+            "parserOptions": {
+                "project": [
+                    "./tsconfig.json"
+                ],
+            },
+        },
+    ],
+}
