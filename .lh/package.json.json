@@ -1,0 +1,26 @@
+{
+    "sourceFile": "package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1709478798631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1709478823054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,10 @@\n     \"@babel/core\": \"^7.20.0\",\n     \"@types/react\": \"^18.2.48\",\n     \"@typescript-eslint/eslint-plugin\": \"^6.20.0\",\n     \"eslint\": \"^8.56.0\",\n-    \"prettier\": \"^3.2.5\"\n+    \"prettier\": \"^3.2.5\",\n+    \"prettier-eslint\": \"^16.3.0\",\n     \"eslint-config-airbnb\": \"^19.0.4\",\n     \"eslint-plugin-import\": \"^2.29.1\",\n     \"eslint-plugin-jsx-a11y\": \"^6.8.0\",\n     \"eslint-plugin-react\": \"^7.33.2\",\n"
+                },
+                {
+                    "date": 1709480003374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n {\n   \"name\": \"loto\",\n   \"version\": \"1.0.0\",\n-  \"main\": \"node_modules/expo/AppEntry.js\",\n+  \"main\": \"src/App\",\n   \"scripts\": {\n     \"start\": \"expo start\",\n     \"android\": \"expo run:android\",\n     \"ios\": \"expo run:ios\",\n@@ -28,15 +28,17 @@\n     \"@babel/core\": \"^7.20.0\",\n     \"@types/react\": \"^18.2.48\",\n     \"@typescript-eslint/eslint-plugin\": \"^6.20.0\",\n     \"eslint\": \"^8.56.0\",\n-    \"prettier\": \"^3.2.5\",\n-    \"prettier-eslint\": \"^16.3.0\",\n     \"eslint-config-airbnb\": \"^19.0.4\",\n+    \"eslint-config-prettier\": \"^9.1.0\",\n     \"eslint-plugin-import\": \"^2.29.1\",\n     \"eslint-plugin-jsx-a11y\": \"^6.8.0\",\n+    \"eslint-plugin-prettier\": \"^5.1.3\",\n     \"eslint-plugin-react\": \"^7.33.2\",\n     \"eslint-plugin-react-hooks\": \"^4.6.0\",\n+    \"prettier\": \"^3.2.5\",\n+    \"prettier-eslint\": \"^16.3.0\",\n     \"typescript\": \"^5.1.3\"\n   },\n   \"private\": true\n }\n"
+                }
+            ],
+            "date": 1709478798631,
+            "name": "Commit-0",
+            "content": "{\n  \"name\": \"loto\",\n  \"version\": \"1.0.0\",\n  \"main\": \"node_modules/expo/AppEntry.js\",\n  \"scripts\": {\n    \"start\": \"expo start\",\n    \"android\": \"expo run:android\",\n    \"ios\": \"expo run:ios\",\n    \"web\": \"expo start --web\"\n  },\n  \"dependencies\": {\n    \"@expo/metro-runtime\": \"~3.1.1\",\n    \"@react-navigation/native\": \"^6.1.9\",\n    \"@react-navigation/native-stack\": \"^6.9.17\",\n    \"expo\": \"~50.0.4\",\n    \"expo-camera\": \"~14.0.3\",\n    \"expo-permissions\": \"^14.4.0\",\n    \"expo-status-bar\": \"~1.11.1\",\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-native\": \"0.73.2\",\n    \"react-native-safe-area-context\": \"4.8.2\",\n    \"react-native-screens\": \"~3.29.0\",\n    \"react-native-web\": \"~0.19.6\",\n    \"tesseract.js\": \"^5.0.5\"\n  },\n  \"devDependencies\": {\n    \"@babel/core\": \"^7.20.0\",\n    \"@types/react\": \"^18.2.48\",\n    \"@typescript-eslint/eslint-plugin\": \"^6.20.0\",\n    \"eslint\": \"^8.56.0\",\n    \"prettier\": \"^3.2.5\"\n    \"eslint-config-airbnb\": \"^19.0.4\",\n    \"eslint-plugin-import\": \"^2.29.1\",\n    \"eslint-plugin-jsx-a11y\": \"^6.8.0\",\n    \"eslint-plugin-react\": \"^7.33.2\",\n    \"eslint-plugin-react-hooks\": \"^4.6.0\",\n    \"typescript\": \"^5.1.3\"\n  },\n  \"private\": true\n}\n"
+        }
+    ]
+}

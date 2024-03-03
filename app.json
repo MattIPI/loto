@@ -3,6 +3,7 @@
     "name": "loto",
     "slug": "loto",
     "version": "1.0.0",
+    "entryPoint": "./src/App.tsx",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -11,9 +12,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
@@ -26,9 +25,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "permissions": [
-        "android.permission.CAMERA"
-      ],
+      "permissions": ["android.permission.CAMERA"],
       "package": "com.mattipi.loto"
     },
     "web": {

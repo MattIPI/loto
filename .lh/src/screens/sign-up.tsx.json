@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/screens/sign-up.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1709479641503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1709479641503,
+            "name": "Commit-0",
+            "content": "import { NativeStackScreenProps } from \"@react-navigation/native-stack/lib/typescript/src/types\";\nimport React, { useState } from \"react\";\nimport { SafeAreaView, StyleSheet, TextInput } from \"react-native\";\n\ntype RootStackParamList = {\n  SignUp: JSX.Element;\n};\n\nexport type SignUpScreenProps = NativeStackScreenProps<\n  RootStackParamList,\n  \"SignUp\"\n>;\n\ntype Props = {\n  navigation: SignUpScreenProps;\n};\n\nexport function SignUpScreen({ navigation }: Props) {\n  const [text, onChangeText] = useState<string>(\"Useless Text\");\n  const [number, onChangeNumber] = useState<string>();\n\n  return (\n    <SafeAreaView>\n      <TextInput\n        style={styles.input}\n        onChangeText={onChangeText}\n        value={text}\n      />\n      <TextInput\n        style={styles.input}\n        onChangeText={onChangeNumber}\n        value={number}\n        placeholder=\"useless placeholder\"\n        keyboardType=\"numeric\"\n      />\n    </SafeAreaView>\n  );\n}\n\nconst styles = StyleSheet.create({\n  input: {\n    height: 40,\n    margin: 12,\n    borderWidth: 1,\n    padding: 10,\n  },\n});\n"
+        }
+    ]
+}

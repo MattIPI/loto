@@ -1,0 +1,18 @@
+{
+    "sourceFile": "settings.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1709478894802,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1709478894802,
+            "name": "Commit-0",
+            "content": "{\n    \"editor.defaultFormatter\": \"rvest.vs-code-prettier-eslint\",\n    \"editor.formatOnType\": false, // required\n    \"editor.formatOnPaste\": true, // optional\n    \"editor.formatOnSave\": true, // optional\n    \"editor.formatOnSaveMode\": \"file\", // required to format on save\n    \"files.autoSave\": \"onFocusChange\", // optional but recommended\n    \"vs-code-prettier-eslint.prettierLast\": false // set as \"true\" to run 'prettier' last not first\n  }"
+        }
+    ]
+}

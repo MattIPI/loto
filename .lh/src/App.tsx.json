@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/App.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1709479625098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1709479692203,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { StatusBar } from \"expo-status-bar\";\n import { StyleSheet, Text, View } from \"react-native\";\n+import React from \"react\";\n import { Routing } from \"./utils/routing\";\n-import React from \"react\";\n \n export default function App() {\n   return (\n     <>\n"
+                },
+                {
+                    "date": 1709479867011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,10 @@\n import { StyleSheet, Text, View } from \"react-native\";\n import React from \"react\";\n import { Routing } from \"./utils/routing\";\n \n+Expo.registerRootComponent(YOUR_MAIN_APP_COMPONENT);\n+\n export default function App() {\n   return (\n     <>\n       {/* <View style={styles.container}>\n"
+                },
+                {
+                    "date": 1709479880287,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { StatusBar } from \"expo-status-bar\";\n import { StyleSheet, Text, View } from \"react-native\";\n import React from \"react\";\n import { Routing } from \"./utils/routing\";\n-\n+import Expo from \"expo\";\n Expo.registerRootComponent(YOUR_MAIN_APP_COMPONENT);\n \n export default function App() {\n   return (\n"
+                },
+                {
+                    "date": 1709479893326,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,12 @@\n import { StatusBar } from \"expo-status-bar\";\n import { StyleSheet, Text, View } from \"react-native\";\n import React from \"react\";\n+import Expo from \"expo\";\n import { Routing } from \"./utils/routing\";\n-import Expo from \"expo\";\n-Expo.registerRootComponent(YOUR_MAIN_APP_COMPONENT);\n \n+Expo.registerRootComponent(App);\n+\n export default function App() {\n   return (\n     <>\n       {/* <View style={styles.container}>\n"
+                },
+                {
+                    "date": 1709479900350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,8 @@\n import React from \"react\";\n import Expo from \"expo\";\n import { Routing } from \"./utils/routing\";\n \n-Expo.registerRootComponent(App);\n-\n export default function App() {\n   return (\n     <>\n       {/* <View style={styles.container}>\n@@ -25,4 +23,6 @@\n     alignItems: \"center\",\n     justifyContent: \"center\",\n   },\n });\n+\n+Expo.registerRootComponent(App);\n"
+                },
+                {
+                    "date": 1709480053548,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { StatusBar } from \"expo-status-bar\";\n import { StyleSheet, Text, View } from \"react-native\";\n import React from \"react\";\n-import Expo from \"expo\";\n+import { registerRootComponent } from \"expo\";\n import { Routing } from \"./utils/routing\";\n \n export default function App() {\n   return (\n@@ -24,5 +24,5 @@\n     justifyContent: \"center\",\n   },\n });\n \n-Expo.registerRootComponent(App);\n+registerRootComponent(App);\n"
+                }
+            ],
+            "date": 1709479625098,
+            "name": "Commit-0",
+            "content": "import { StatusBar } from \"expo-status-bar\";\nimport { StyleSheet, Text, View } from \"react-native\";\nimport { Routing } from \"./utils/routing\";\nimport React from \"react\";\n\nexport default function App() {\n  return (\n    <>\n      {/* <View style={styles.container}>\n        <Text>Open up App.tsx to start working on your app!</Text>\n        <StatusBar style=\"auto\" />\n      </View> */}\n      <Routing />\n    </>\n  );\n}\n\nconst styles = StyleSheet.create({\n  container: {\n    flex: 1,\n    backgroundColor: \"#fff\",\n    alignItems: \"center\",\n    justifyContent: \"center\",\n  },\n});\n"
+        }
+    ]
+}

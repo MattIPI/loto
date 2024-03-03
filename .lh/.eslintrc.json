@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1707066935798,
@@ -20,6 +20,18 @@
                 {
                     "date": 1707067508689,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,11 @@\n                     {\n                         \"max\": 1,\n                         \"maxBOF\": 1\n                     }\n-                ]\n-                \"linebreak-style\": [\"error\", \"windows\"]\n+                ],\n+                \"linebreak-style\": [\"error\", \"windows\"],\n+                \"react/jsx-filename-extension\": [1, { \"extensions\": [\".tsx\", \".jsx\"] }]\n             },\n             \"plugins\": [\n                 \"@typescript-eslint\",\n             ],\n"
+                },
+                {
+                    "date": 1709478353564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n                         \"max\": 1,\n                         \"maxBOF\": 1\n                     }\n                 ],\n-                \"linebreak-style\": [\"error\", \"windows\"],\n+                // \"linebreak-style\": [\"error\", \"windows\"],\n                 \"react/jsx-filename-extension\": [1, { \"extensions\": [\".tsx\", \".jsx\"] }]\n             },\n             \"plugins\": [\n                 \"@typescript-eslint\",\n"
+                },
+                {
+                    "date": 1709478359748,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,8 @@\n                         \"max\": 1,\n                         \"maxBOF\": 1\n                     }\n                 ],\n-                // \"linebreak-style\": [\"error\", \"windows\"],\n                 \"react/jsx-filename-extension\": [1, { \"extensions\": [\".tsx\", \".jsx\"] }]\n             },\n             \"plugins\": [\n                 \"@typescript-eslint\",\n"
+                },
+                {
+                    "date": 1709479439063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n {\n     \"extends\": [\n         \"eslint-config-airbnb\",\n+        \"prettier\"\n     ],\n     \"overrides\": [\n         {\n             \"files\": [\n"
                 }
             ],
             "date": 1707066935798,

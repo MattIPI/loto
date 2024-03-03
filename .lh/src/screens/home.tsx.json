@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/screens/home.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1709479566814,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1709479594027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { NativeStackScreenProps } from \"@react-navigation/native-stack/lib/typescript/src/types\";\n import React from \"react\";\n import { Alert, Button } from \"react-native\";\n import { SignUpScreen } from \"./sign-up\";\n-import { Routes } from \"../../utils/routing\";\n+import { Routes } from \"../utils/routing\";\n \n type RootStackParamList = {\n   Home: JSX.Element;\n };\n"
+                }
+            ],
+            "date": 1709479566814,
+            "name": "Commit-0",
+            "content": "import { Link } from \"@react-navigation/native\";\nimport { NativeStackScreenProps } from \"@react-navigation/native-stack/lib/typescript/src/types\";\nimport React from \"react\";\nimport { Alert, Button } from \"react-native\";\nimport { SignUpScreen } from \"./sign-up\";\nimport { Routes } from \"../../utils/routing\";\n\ntype RootStackParamList = {\n  Home: JSX.Element;\n};\n\nexport type HomeScreenProps = NativeStackScreenProps<\n  RootStackParamList,\n  \"Home\"\n>;\n\ntype Props = {\n  navigation: HomeScreenProps;\n};\n\nexport const HomeScreen = ({ navigation }: Props) => {\n  const createTwoButtonAlert = () =>\n    Alert.alert(\"Alert Title\", \"My Alert Msg\", [\n      {\n        text: \"Cancel\",\n        onPress: () => console.log(\"Cancel Pressed\"),\n        style: \"cancel\",\n      },\n      { text: \"OK\", onPress: () => console.log(\"OK Pressed\") },\n    ]);\n\n  console.log(\"navigation:\", navigation);\n\n  return (\n    <>\n      <Link to={Routes.SIGN_UP.path}>Créer un compte</Link>\n      <Link to={Routes.LOGGED_OUT_SCAN_BOARD.path}>Commencer sans compte</Link>\n      <Button title=\"Go to Jane's profile\" onPress={createTwoButtonAlert} />\n    </>\n  );\n};\n"
+        }
+    ]
+}
