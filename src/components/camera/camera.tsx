@@ -2,7 +2,11 @@ import { Camera, CameraCapturedPicture, CameraPictureOptions, CameraType, Permis
 import React, { useCallback, useState } from 'react';
 import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
 
-const AppCamera = (): JSX.Element => {
+const AppCamera = ({
+    onCapturedPicture,
+}: {
+    onCapturedPicture: (photo: CameraCapturedPicture) => void;
+}): JSX.Element => {
     const [camera, setCamera] = useState({
         hasCameraPermission: null,
         type: CameraType.back,
@@ -14,6 +18,7 @@ const AppCamera = (): JSX.Element => {
         quality: 1,
         base64: true,
         exif: true,
+        isImageMirror: false,
     };
 
     const setCameraReady = useCallback(() => {
@@ -31,9 +36,7 @@ const AppCamera = (): JSX.Element => {
         if (cameraRef !== null && isCameraReady) {
             const photo: CameraCapturedPicture = await cameraRef.takePictureAsync(cameraOptions);
             await cameraRef.pausePreview();
-            // todo: use tesseract to read the text from the photo in base 64
-            // https://github.com/naptha/tesseract.js/blob/master/docs/image-format.md
-            // https://github.com/naptha/tesseract.js/blob/master/docs/workers_vs_schedulers.md#option-1-using-workers-directly
+            onCapturedPicture(photo);
         }
     }, [isCameraReady, cameraRef]);
 
