@@ -15,7 +15,7 @@ const AppCamera = ({
     const [cameraStatus, requestPermission] = Camera.useCameraPermissions();
     const [isCameraReady, setIsCameraReady] = useState<boolean>(false);
     const cameraOptions: CameraPictureOptions = {
-        quality: 1,
+        quality: 0.5,
         base64: true,
         exif: true,
         isImageMirror: false,

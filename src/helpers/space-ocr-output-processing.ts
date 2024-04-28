@@ -47,14 +47,16 @@ let row2FromTop: number;
 let row3FromTop: number;
 
 const createEmptyGrid = (): LotoGrid => {
+    const emptyLine = [null, null, null, null, null, null, null, null, null] as LotoLine;
+    return [[...emptyLine], [...emptyLine], [...emptyLine]];
+};
+
+const initProcessingValues = (): void => {
     row1FromTop = 0;
     row2FromTop = 0;
     row3FromTop = 0;
 
     smallChars = undefined;
-
-    const emptyLine = [null, null, null, null, null, null, null, null, null] as LotoLine;
-    return [[...emptyLine], [...emptyLine], [...emptyLine]];
 };
 
 const isBigChar = (charSize: number) => charSize >= bigChars.min && charSize <= bigChars.max;
@@ -178,21 +180,20 @@ const sanitizeDuplicatedNumbers = (ocrOutput: OCRLine[]): OCRLine[] => {
 const detectRowsPosition = (ocrOutput: OCRLine[]) => {
     const avgBigCharSize = bigChars.average;
     // First row starts at the top of the first big char
-    row1FromTop = ocrOutput
-        .filter((line) => isBigChar(line.Words[0].Height))
-        .toSorted((a, b) => a.MinTop - b.MinTop)[0].MinTop;
+    const row1FromTopUnsorted = ocrOutput.filter((line) => isBigChar(line.Words[0].Height));
+    row1FromTop = [...row1FromTopUnsorted].sort((a, b) => a.MinTop - b.MinTop)[0].MinTop;
 
     // Second row starts at the first big char not in the first row
-    row2FromTop = ocrOutput
+    const row2FromTopUnsorted = ocrOutput
         .filter((line) => isBigChar(line.Words[0].Height))
-        .filter((line) => line.MinTop > row1FromTop + avgBigCharSize)
-        .toSorted((a, b) => a.MinTop - b.MinTop)[0].MinTop;
+        .filter((line) => line.MinTop > row1FromTop + avgBigCharSize);
+    row2FromTop = [...row2FromTopUnsorted].sort((a, b) => a.MinTop - b.MinTop)[0].MinTop;
 
     // Third row starts at the first big char not in the other rows
-    row3FromTop = ocrOutput
+    const row3FromTopUnsorted = ocrOutput
         .filter((line) => isBigChar(line.Words[0].Height))
-        .filter((line) => line.MinTop > row2FromTop + avgBigCharSize)
-        .toSorted((a, b) => a.MinTop - b.MinTop)[0].MinTop;
+        .filter((line) => line.MinTop > row2FromTop + avgBigCharSize);
+    row3FromTop = [...row3FromTopUnsorted].sort((a, b) => a.MinTop - b.MinTop)[0].MinTop;
 };
 
 const cleanNonGridNumbers = (ocrOutput: OCRLine[]) => {
@@ -242,6 +243,7 @@ const detectLotoLineNumber = (value: OCRWord): LineNumber => {
 };
 
 export const processSpaceOcrOutputGrid = (ocrOutput: OCRLine[]) => {
+    initProcessingValues();
     // Avant de commencer à process le contenu, on exclue les lignes qui contiennent autre chose que des chiffres ou des espaces
     const linesWithNumbers = ocrOutput.filter((line) => line.LineText.match(/^[0-9\s]+$/));
 
@@ -250,12 +252,17 @@ export const processSpaceOcrOutputGrid = (ocrOutput: OCRLine[]) => {
     bigChars = bigCharSize;
     if (smallCharSize) smallChars = smallCharSize;
 
+    console.log('ocrOutput', JSON.stringify(ocrOutput));
+
     const sanitizedLines = sanitizeDuplicatedNumbers(linesWithNumbers);
 
     // Remove lines that should not be considered as grid numbers
     const gridNumbers = cleanNonGridNumbers(sanitizedLines);
 
     detectRowsPosition(gridNumbers);
+
+    console.log('\r\n');
+    console.log('gridNumbers', JSON.stringify(gridNumbers));
 
     const grid = gridNumbers.reduce(
         (acc: ProcessingGrid, value: OCRLine) => {
@@ -316,5 +323,5 @@ export const processSpaceOcrOutputGrid = (ocrOutput: OCRLine[]) => {
         } as ProcessingGrid
     );
 
-    return grid;
+    return grid.grid;
 };
