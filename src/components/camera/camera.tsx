@@ -1,6 +1,8 @@
 import { Camera, CameraCapturedPicture, CameraPictureOptions, CameraType, PermissionStatus } from 'expo-camera';
 import React, { useCallback, useState } from 'react';
 import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
+import CameraSnapshotButton from '../utils/camera/snapshot-button';
+import CameraFlipButton from '../utils/camera/flip-button';
 
 const AppCamera = ({
     onCapturedPicture,
@@ -14,6 +16,7 @@ const AppCamera = ({
     const [cameraRef, setCameraRef] = useState<Camera | null>(null);
     const [cameraStatus, requestPermission] = Camera.useCameraPermissions();
     const [isCameraReady, setIsCameraReady] = useState<boolean>(false);
+    const [isCameraPaused, setIsCameraPaused] = useState<boolean>(false);
     const cameraOptions: CameraPictureOptions = {
         quality: 0.5,
         base64: true,
@@ -36,6 +39,7 @@ const AppCamera = ({
         if (cameraRef !== null && isCameraReady) {
             const photo: CameraCapturedPicture = await cameraRef.takePictureAsync(cameraOptions);
             await cameraRef.pausePreview();
+            setIsCameraPaused(true);
             onCapturedPicture(photo);
         }
     }, [isCameraReady, cameraRef]);
@@ -46,7 +50,7 @@ const AppCamera = ({
 
     return (
         <Camera
-            style={{ flex: 1 }}
+            style={{ flex: 1, width: '100%' }}
             type={camera.type}
             onCameraReady={setCameraReady}
             ref={(ref) => {
@@ -58,37 +62,25 @@ const AppCamera = ({
                     flex: 1,
                     backgroundColor: 'transparent',
                     flexDirection: 'row',
+                    alignItems: 'flex-end',
+                    paddingBottom: 20,
                 }}
             >
-                <TouchableOpacity
-                    style={{
-                        flex: 0.1,
-                        alignSelf: 'flex-end',
-                        alignItems: 'center',
-                    }}
-                    onPress={() => {
-                        setCamera({
-                            type: CameraType.back,
-                            hasCameraPermission: camera.hasCameraPermission,
-                        });
-                    }}
-                >
-                    <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={{
-                        display: isCameraReady ? 'flex' : 'none',
-                        flex: 0.1,
-                        alignSelf: 'flex-end',
-                        alignItems: 'center',
-                    }}
-                    onPress={async () => {
-                        takeSnapshot();
-                    }}
-                >
-                    <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}>Take snapshot</Text>
-                </TouchableOpacity>
+                {isCameraReady && !isCameraPaused && (
+                    <>
+                        <View style={{ position: 'absolute', right: 20, top: 20 }}>
+                            <CameraFlipButton
+                                flip={() =>
+                                    setCamera({
+                                        ...camera,
+                                        type: camera.type === CameraType.back ? CameraType.front : CameraType.back,
+                                    })
+                                }
+                            />
+                        </View>
+                        <CameraSnapshotButton takeSnapshot={takeSnapshot} />
+                    </>
+                )}
             </View>
         </Camera>
     );

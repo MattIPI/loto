@@ -1,28 +1,20 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { registerRootComponent } from "expo";
-import { Routing } from "./utils/routing";
+import '@expo/metro-runtime';
+import React from 'react';
+import { registerRootComponent } from 'expo';
+import { Routing } from './utils/routing';
+import { useFonts } from 'expo-font/build/FontHooks';
 
 export default function App() {
-  return (
-    <>
-      {/* <View style={styles.container}>
-        <Text>Open up App.tsx to start working on your app!</Text>
-        <StatusBar style="auto" />
-      </View> */}
-      <Routing />
-    </>
-  );
-}
+    const [fontsLoaded] = useFonts({
+        CoffeCake: require('./assets/fonts/CoffeCake.otf'),
+        Nicolast: require('./assets/fonts/Nicolast.otf'),
+    });
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+    return (
+        <>
+            <Routing />
+        </>
+    );
+}
 
 registerRootComponent(App);

@@ -30,10 +30,15 @@ export const processImageLocally = async (image: string): Promise<LotoGrid> => {
             body: formdata,
         };
 
-        const request = await fetch('https://api.ocr.space/parse/image', requestOptions);
-        const data = await request.json();
+        // const request = await fetch('https://api.ocr.space/parse/image', requestOptions);
+        // const data = await request.json();
 
-        const grid = processSpaceOcrOutputGrid(data.ParsedResults[0].TextOverlay.Lines);
+        // const grid = processSpaceOcrOutputGrid(data.ParsedResults[0].TextOverlay.Lines);
+        const grid = [
+            [1, 13, null, 35, null, 51, 64, null, null],
+            [null, 10, 27, 32, null, 56, 60, null, null],
+            [9, null, 22, null, 49, null, null, 79, 85],
+        ] as LotoGrid;
         return grid;
     } catch (error) {
         console.error(error);
